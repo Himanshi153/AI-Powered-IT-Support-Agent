@@ -1,0 +1,14 @@
+{
+  "task7-test": {
+    "messages": [
+      {
+        "role": "user",
+        "content": "My WiFi is not working"
+      }
+    ],
+    "issue": "My WiFi is not working",
+    "tool_results": [],
+    "step_count": 3,
+    "approval_status": "not_required"
+  }
+}

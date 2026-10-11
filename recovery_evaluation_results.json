@@ -1,0 +1,183 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "evaluation_method": "LLM-as-a-judge",
+  "scoring_scale": "1-5",
+  "target_evaluations": 3,
+  "historical_observations_found": 44,
+  "relevant_observations_found": 22,
+  "successfully_evaluated_observations": 3,
+  "note": "These are individual observations, not necessarily complete end-to-end recovery episodes. Do not interpret the average as an overall agent performance score.",
+  "results": [
+    {
+      "record_number": 1,
+      "evidence": {
+        "observation_id": "5c26effc592d1347",
+        "trace_id": "1134d2c84f8e03503a6ad03c2d6d4922",
+        "name": null,
+        "input": {
+          "issue": "Calculate 500 minus 175.",
+          "step_count": 1,
+          "previous_tool_results": [
+            {
+              "jsonrpc": "2.0",
+              "error": {
+                "code": 400,
+                "message": "calculator_tool requires 'expression'."
+              },
+              "id": 1
+            }
+          ]
+        },
+        "output": {
+          "decision": {
+            "action": "tool",
+            "tool_name": "calculator_tool",
+            "arguments": {
+              "expression": "500-175"
+            },
+            "response": ""
+          },
+          "step_count": 2
+        },
+        "metadata": {
+          "token_usage": {
+            "input_tokens": 502,
+            "output_tokens": 93,
+            "total_tokens": 595
+          },
+          "status": "success",
+          "error_recovery_attempt": true,
+          "available_mcp_tools": [
+            "calculator_tool",
+            "get_system_info_tool",
+            "troubleshoot_issue_tool"
+          ],
+          "model": "openai/gpt-oss-20b",
+          "scope.attributes.public_key": "pk-lf-7c89a500-9c63-420c-b082-c120fa70b352",
+          "scope.version": "4.17.0",
+          "scope.name": "langfuse-sdk",
+          "resourceAttributes.service.name": "unknown_service:python.exe",
+          "resourceAttributes.service.instance.id": "38ee7e70-e7f5-4e10-85b1-94ce60c59ac5",
+          "resourceAttributes.telemetry.sdk.version": "1.45.0",
+          "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+          "resourceAttributes.telemetry.sdk.language": "python"
+        }
+      },
+      "evaluation": {
+        "score": 3,
+        "error_detected": true,
+        "recovery_attempted": true,
+        "recovery_successful": false,
+        "reason": "The observation shows that the agent recognized the missing 'expression' argument from the previous tool error and attempted to correct it by issuing a new tool call with the expression \"500-175\". However, the output does not include the tool's result, so there is no evidence that the corrected request succeeded. Therefore, the observation demonstrates a recovery attempt but not a verified successful outcome."
+      }
+    },
+    {
+      "record_number": 2,
+      "evidence": {
+        "observation_id": "a28289e5deceb585",
+        "trace_id": "ef0d633f6cd65acee4fa9a4da45d8df4",
+        "name": null,
+        "input": {
+          "jsonrpc": "2.0",
+          "method": "tools/call",
+          "params": {
+            "name": "calculator_tool",
+            "arguments": {}
+          },
+          "id": 1
+        },
+        "output": {
+          "jsonrpc": "2.0",
+          "error": {
+            "code": 400,
+            "message": "calculator_tool requires 'expression'."
+          },
+          "id": 1
+        },
+        "metadata": {
+          "http_status": 400,
+          "status": "validation_error",
+          "tool_name": "calculator_tool",
+          "scope.attributes.public_key": "pk-lf-7c89a500-9c63-420c-b082-c120fa70b352",
+          "scope.version": "4.17.0",
+          "scope.name": "langfuse-sdk",
+          "resourceAttributes.service.name": "unknown_service:python.exe",
+          "resourceAttributes.service.instance.id": "38ee7e70-e7f5-4e10-85b1-94ce60c59ac5",
+          "resourceAttributes.telemetry.sdk.version": "1.45.0",
+          "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+          "resourceAttributes.telemetry.sdk.language": "python"
+        }
+      },
+      "evaluation": {
+        "score": 1,
+        "error_detected": true,
+        "recovery_attempted": false,
+        "recovery_successful": false,
+        "reason": "The observation contains only the initial request to calculator_tool with missing required arguments, resulting in a validation error. No subsequent request or corrective action is shown, so there is no evidence of a recovery attempt or success."
+      }
+    },
+    {
+      "record_number": 3,
+      "evidence": {
+        "observation_id": "27691dde287a056b",
+        "trace_id": "884ef32586efc768fcbe36d02a62ef8f",
+        "name": null,
+        "input": {
+          "issue": "Calculate 32 multiplied by 8.",
+          "step_count": 1,
+          "previous_tool_results": [
+            {
+              "jsonrpc": "2.0",
+              "error": {
+                "code": 400,
+                "message": "calculator_tool requires 'expression'."
+              },
+              "id": 1
+            }
+          ]
+        },
+        "output": {
+          "decision": {
+            "action": "tool",
+            "tool_name": "calculator_tool",
+            "arguments": {
+              "expression": "32 * 8"
+            },
+            "response": ""
+          },
+          "step_count": 2
+        },
+        "metadata": {
+          "token_usage": {
+            "input_tokens": 503,
+            "output_tokens": 97,
+            "total_tokens": 600
+          },
+          "status": "success",
+          "error_recovery_attempt": true,
+          "available_mcp_tools": [
+            "calculator_tool",
+            "get_system_info_tool",
+            "troubleshoot_issue_tool"
+          ],
+          "model": "openai/gpt-oss-20b",
+          "scope.attributes.public_key": "pk-lf-7c89a500-9c63-420c-b082-c120fa70b352",
+          "scope.version": "4.17.0",
+          "scope.name": "langfuse-sdk",
+          "resourceAttributes.service.name": "unknown_service:python.exe",
+          "resourceAttributes.service.instance.id": "38ee7e70-e7f5-4e10-85b1-94ce60c59ac5",
+          "resourceAttributes.telemetry.sdk.version": "1.45.0",
+          "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+          "resourceAttributes.telemetry.sdk.language": "python"
+        }
+      },
+      "evaluation": {
+        "score": 3,
+        "error_detected": true,
+        "recovery_attempted": true,
+        "recovery_successful": false,
+        "reason": "The observation shows that the agent recognized the missing 'expression' field in the previous tool call and attempted to correct it by invoking the calculator_tool with the expression \"32 * 8\". However, the tool response is not included in this observation, so there is no evidence that the correction succeeded or that the calculation was completed. Therefore, the observation only demonstrates an attempted recovery, not a verified successful result."
+      }
+    }
+  ]
+}
