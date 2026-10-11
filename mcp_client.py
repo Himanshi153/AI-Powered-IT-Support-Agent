@@ -36,7 +36,7 @@ async def discover_mcp_tools():
             return tool_registry
 async def call_mcp_tool(tool_name: str, arguments: dict):
     server_params = StdioServerParameters(
-        command=str(Path(__file__).parent / ".venv" / "Scripts" / "python.exe"),
+        command=sys.executable,
         args=[str(SERVER_PATH)],
     )
 
